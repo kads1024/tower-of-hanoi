@@ -6,37 +6,25 @@
 [CreateAssetMenu(menuName = "Input/Player Input")]
 public class PlayerInput : ScriptableObject
 {
-    // Movement of the Hanoi Base
-    [SerializeField] private KeyCode _moveLeft;
-    [SerializeField] private KeyCode _moveRight;
+    // Rotation of the Hanoi Base
+    [SerializeField] private KeyCode _rotateLeft;
+    [SerializeField] private KeyCode _rotateRight;
 
     // Used for picking up the top most piece of a certain pole
     [SerializeField] private KeyCode _pickUp;
 
     /// <summary>
-    /// Checks if the user has pressed the MoveLeft key
+    /// Checks if the user has pressed the RotateLeft key
     /// </summary>
-    /// <returns>Returns true if the user has pressed the MoveLeft Key</returns>
-    public bool MoveLeftPressed()
-    {
-        return Input.GetKeyDown(_moveLeft);
-    }
+    public bool RotateLeftPressed => Input.GetKeyDown(_rotateLeft);
 
     /// <summary>
-    /// Checks if the user has pressed the MoveRight key
+    /// Checks if the user has pressed the RotateRight key
     /// </summary>
-    /// <returns>Returns true if the user has pressed the MoveRight Key</returns>
-    public bool MoveRightPressed()
-    {
-        return Input.GetKeyDown(_moveRight);
-    }
+    public bool RotateRightPressed  => Input.GetKeyDown(_rotateRight);
 
     /// <summary>
     /// Checks if the user has pressed the PickUp key
     /// </summary>
-    /// <returns>Returns true if the user has pressed the PickUp Key</returns>
-    public bool PickupPressed()
-    {
-        return Input.GetKeyDown(_pickUp);
-    }
+    public bool PickupPressed => Input.GetKeyDown(_pickUp);
 }

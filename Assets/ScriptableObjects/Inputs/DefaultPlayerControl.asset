@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dcccd50051ac7ff418b9b88a30984be6, type: 3}
-  m_Name: DefaultPlayerControls
+  m_Name: DefaultPlayerControl
   m_EditorClassIdentifier: 
-  _moveLeft: 276
-  _moveRight: 275
+  _rotateLeft: 276
+  _rotateRight: 275
   _pickUp: 32

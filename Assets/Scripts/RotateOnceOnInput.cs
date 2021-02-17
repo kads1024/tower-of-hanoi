@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Component that rotates the object by _rotationOffset degress controlled by _input
 /// </summary>
-public class HanoiRotation : MonoBehaviour
+public class RotateOnceOnInput : MonoBehaviour
 {
     [Tooltip("Input Controls that will control the rotation of this object")]
     [SerializeField] private PlayerInput _input;
@@ -20,18 +20,18 @@ public class HanoiRotation : MonoBehaviour
 
     private void Update()
     {
-        if(_input.MoveRightPressed() && !_isCurrentlyRotating)
+        if(_input.RotateRightPressed && !_isCurrentlyRotating)
         {
             Quaternion currentRotation = transform.rotation;
-            Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles - (transform.up * _rotationOffset));
+            Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles + (transform.up * _rotationOffset));
 
             _isCurrentlyRotating = true;
             StartCoroutine(InterpolateRotation(currentRotation, targetRotation));
         }
-        else if (_input.MoveLeftPressed() && !_isCurrentlyRotating)
+        else if (_input.RotateLeftPressed && !_isCurrentlyRotating)
         {
             Quaternion currentRotation = transform.rotation;
-            Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles + (transform.up * _rotationOffset));
+            Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles - (transform.up * _rotationOffset));
 
             _isCurrentlyRotating = true;
             StartCoroutine(InterpolateRotation(currentRotation, targetRotation));
@@ -52,7 +52,7 @@ public class HanoiRotation : MonoBehaviour
         while (lerpTimer > 0.0f)
         {
             lerpTimer -= Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(p_startRotation, p_endRotation, lerpTimer * _rotationSpeed);
+            transform.rotation = Quaternion.Slerp(p_startRotation, p_endRotation, (1f - lerpTimer) * _rotationSpeed);
 
             yield return new WaitForEndOfFrame();
         }
