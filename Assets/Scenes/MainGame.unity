@@ -647,7 +647,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.33934978, y: -1.5655399e-15, z: 3.174341e-16, w: 0.9406603}
+  m_LocalRotation: {x: 0.33934975, y: 0.000000028033863, z: -0.000000010113411, w: 0.9406603}
   m_LocalPosition: {x: 0, y: 8.12, z: -9.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -904,7 +904,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430698176}
-  m_LocalRotation: {x: 0.33934978, y: -1.5655399e-15, z: 3.174341e-16, w: 0.9406603}
+  m_LocalRotation: {x: 0.33934975, y: 0.000000028033863, z: -0.000000010113411, w: 0.9406603}
   m_LocalPosition: {x: 0, y: 8.12, z: -9.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 1960444933}
   - component: {fileID: 1960444934}
   - component: {fileID: 1960444935}
+  - component: {fileID: 1960444936}
   m_Layer: 0
   m_Name: HanoiBoard
   m_TagString: Untagged
@@ -1018,6 +1019,7 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 64ae8b5e080f45f479ff33a0ccc9f627, type: 2}
+  _pickupController: {fileID: 11400000, guid: 2349caab5d8b0d049acefb1b8f0a17ad, type: 2}
 --- !u!114 &1960444934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1032,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b669ed4ab50cd40b20665554490773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poles:
+  - {fileID: 366963256}
+  - {fileID: 1379418191}
+  - {fileID: 859791418}
 --- !u!114 &1960444935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1049,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _event: {fileID: 11400000, guid: d32e863e68cb0fa46b725f67dc6af12b, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1960444934}
+        m_MethodName: UpdateSelectedPoleFromRotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1960444936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960444930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b2c23d515cdcd418b5375469069866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupController: {fileID: 11400000, guid: 2349caab5d8b0d049acefb1b8f0a17ad, type: 2}
 --- !u!1 &2021811994
 GameObject:
   m_ObjectHideFlags: 0

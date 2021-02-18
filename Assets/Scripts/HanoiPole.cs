@@ -19,14 +19,14 @@ public class HanoiPole : MonoBehaviour
     private Stack<HanoiDisc> _discStack = new Stack<HanoiDisc>();
 
     /// <summary>
-    /// Gets the Top disc and removes it
+    /// Gets the Top disc (if not empty) and removes it
     /// </summary>
-    public HanoiDisc TopDisc => _discStack.Pop();
+    public HanoiDisc TopDisc => _discStack.Count > 0 ? _discStack.Pop() : null;
 
     /// <summary>
-    /// Gets the Top disc but does not remove it
+    /// Gets the Top disc (if not empty) but does not remove it
     /// </summary>
-    public HanoiDisc PeekTopDisc => _discStack.Peek();
+    public HanoiDisc PeekTopDisc => _discStack.Count > 0 ? _discStack.Peek() : null;
 
     /// <summary>
     /// Initializes the pole to be ready to use for the game

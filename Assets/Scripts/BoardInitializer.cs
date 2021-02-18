@@ -15,6 +15,9 @@ public class BoardInitializer : MonoBehaviour
     // Total number of discs to be used in the current session
     [SerializeField] private IntReference _discQuantity;
 
+    // Pickup controller to be used in game
+    [SerializeField] private PickupController _pickupController;
+
     // Initialize the values upon start of this object
     private void Start()
     {
@@ -46,6 +49,15 @@ public class BoardInitializer : MonoBehaviour
             discs.Add(disc);
         }
 
+        // Calculate the pickup Location by getting the last disc placed and positioning it 5 stacks higher than that disc
+        Vector3 pickupLocation = new Vector3(
+                    disc.transform.position.x,
+                    disc.transform.position.y + (disc.YScale * 10f),
+                    disc.transform.position.z);
+        
+        // Initialize the Pickup location
+        _pickupController.Initialize(pickupLocation);
+
         // Initialize all poles
         for (int i = 0; i < _poles.Length; i++)     
             _poles[i].Initialize(_discQuantity.Value, disc.YScale);
@@ -55,6 +67,6 @@ public class BoardInitializer : MonoBehaviour
         {
             discs[i].transform.SetParent(_poles[0].transform);
             _poles[0].AddDiscToStack(discs[i]);
-        }             
+        }
     }
 }

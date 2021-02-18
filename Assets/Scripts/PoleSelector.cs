@@ -6,14 +6,19 @@
 public class PoleSelector : MonoBehaviour
 {
     // Index of the current selected pole
-    private int _currentlySelectedPole;
+    private int _currentPoleIndex;
 
     // List of poles in the game
     [SerializeField] private HanoiPole[] _poles = new HanoiPole[3];
+    public HanoiDisc TopDisc => _poles[_currentPoleIndex].TopDisc;
 
-    private void Start()
+    // Currently Selected Pole
+    public HanoiPole CurrentlySelectedPole => _poles[_currentPoleIndex];
+
+    // Initializes the Pole Selector
+    public void Start()
     {
-        _currentlySelectedPole = 0;    
+        _currentPoleIndex = 0;
     }
 
     /// <summary>
@@ -23,10 +28,10 @@ public class PoleSelector : MonoBehaviour
     public void UpdateSelectedPoleFromRotation(RotationType p_rotationType)
     {
         // Add the rotation
-        _currentlySelectedPole += (int)p_rotationType;
+        _currentPoleIndex += (int)p_rotationType;
 
         // Repeat the values between 0 and pole count
-        if (_currentlySelectedPole >= _poles.Length) _currentlySelectedPole = 0;
-        else if (_currentlySelectedPole < 0) _currentlySelectedPole = _poles.Length - 1;
+        if (_currentPoleIndex >= _poles.Length) _currentPoleIndex = 0;
+        else if (_currentPoleIndex < 0) _currentPoleIndex = _poles.Length - 1;
     }
 }
