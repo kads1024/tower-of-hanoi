@@ -9,6 +9,9 @@ public class RotateOnceOnInput : MonoBehaviour
     [Tooltip("Input Controls that will control the rotation of this object")]
     [SerializeField] private PlayerInput _input;
 
+    [Tooltip("Event that will be raised when the object has rotated")]
+    [SerializeField] private RotationEvent _onRotate;
+
     [Tooltip("Rotation value to increment whenever you rotate this object")]
     [SerializeField, Range(0, 360)] private float _rotationOffset;
 
@@ -27,6 +30,7 @@ public class RotateOnceOnInput : MonoBehaviour
 
             _isCurrentlyRotating = true;
             StartCoroutine(InterpolateRotation(currentRotation, targetRotation));
+            _onRotate.Raise(RotationType.RIGHT);
         }
         else if (_input.RotateLeftPressed && !_isCurrentlyRotating)
         {
@@ -35,6 +39,7 @@ public class RotateOnceOnInput : MonoBehaviour
 
             _isCurrentlyRotating = true;
             StartCoroutine(InterpolateRotation(currentRotation, targetRotation));
+            _onRotate.Raise(RotationType.LEFT);
         }
     }
 
@@ -47,16 +52,23 @@ public class RotateOnceOnInput : MonoBehaviour
     {
         // Reset the timer based on the rotation speed
         float lerpTimer = 1f / _rotationSpeed;
+        float initialTime = lerpTimer;
 
         // Interpolate between the start and end rotation based on the interpolation timer and rotation speed
         while (lerpTimer > 0.0f)
         {
             lerpTimer -= Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(p_startRotation, p_endRotation, (1f - lerpTimer) * _rotationSpeed);
+            transform.rotation = Quaternion.Slerp(p_startRotation, p_endRotation, (initialTime - lerpTimer) * _rotationSpeed);
 
             yield return new WaitForEndOfFrame();
         }
 
         _isCurrentlyRotating = false;
     }
+}
+
+public enum RotationType
+{
+    LEFT = -1,
+    RIGHT = 1
 }

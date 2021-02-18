@@ -27,4 +27,9 @@ public class PlayerInput : ScriptableObject
     /// Checks if the user has pressed the PickUp key
     /// </summary>
     public bool PickupPressed => Input.GetKeyDown(_pickUp);
+
+    /// <summary>
+    /// Checks if the user has released the PickUp key
+    /// </summary>
+    public bool PickupReleased => Input.GetKeyUp(_pickUp);
 }
