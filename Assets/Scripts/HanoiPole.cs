@@ -29,6 +29,11 @@ public class HanoiPole : MonoBehaviour
     public HanoiDisc PeekTopDisc => _discStack.Count > 0 ? _discStack.Peek() : null;
 
     /// <summary>
+    /// Gets the total number of discs this pole has
+    /// </summary>
+    public int DiscCount => _discStack.Count;
+
+    /// <summary>
     /// Initializes the pole to be ready to use for the game
     /// </summary>
     /// <param name="p_discQuantity">The total number of discs that can fit in a pole</param>
