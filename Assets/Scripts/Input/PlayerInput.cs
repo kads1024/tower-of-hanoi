@@ -14,22 +14,22 @@ public class PlayerInput : ScriptableObject
     [SerializeField] private KeyCode _pickUp;
 
     /// <summary>
-    /// Checks if the user has pressed the RotateLeft key
+    /// Checks if the user has pressed the RotateLeft key and the game is not paused
     /// </summary>
-    public bool RotateLeftPressed => Input.GetKeyDown(_rotateLeft);
+    public bool RotateLeftPressed => Input.GetKeyDown(_rotateLeft) && Time.timeScale != 0.0f;
 
     /// <summary>
-    /// Checks if the user has pressed the RotateRight key
+    /// Checks if the user has pressed the RotateRight key and the game is not paused
     /// </summary>
-    public bool RotateRightPressed  => Input.GetKeyDown(_rotateRight);
+    public bool RotateRightPressed  => Input.GetKeyDown(_rotateRight) && Time.timeScale != 0.0f;
 
     /// <summary>
-    /// Checks if the user has pressed the PickUp key
+    /// Checks if the user has pressed the PickUp key and the game is not paused
     /// </summary>
-    public bool PickupPressed => Input.GetKeyDown(_pickUp);
+    public bool PickupPressed => Input.GetKeyDown(_pickUp) && Time.timeScale != 0.0f;
 
     /// <summary>
-    /// Checks if the user has released the PickUp key
+    /// Checks if the user has released the PickUp key and the game is not paused
     /// </summary>
-    public bool PickupReleased => Input.GetKeyUp(_pickUp);
+    public bool PickupReleased => Input.GetKeyUp(_pickUp) && Time.timeScale != 0.0f;
 }

@@ -118,8 +118,9 @@ public class PickupController : ScriptableObject
         // Reset the Currently Held disc
         _currentlyHeldDisc = null;
 
-        // Update Movecount
-        _moveCount.SetVariableValue(_moveCount.Value + 1);
+        // Update Movecount if you moved to another pole
+        if(p_pole != _currentDiscOriginalPole)
+            _moveCount.SetVariableValue(_moveCount.Value + 1);
 
         // Raise the on put down event
         _onDiscPutdown.Raise();    
