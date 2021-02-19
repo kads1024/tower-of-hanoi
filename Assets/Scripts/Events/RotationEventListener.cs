@@ -2,11 +2,11 @@
 using UnityEngine.Events;
 
 /// <summary>
-/// Listener to the VoidEvent channel
+/// Listener to the RotationEvent channel
 /// </summary>
 public class RotationEventListener : MonoBehaviour
 {
-    // The VoidEvent channel where this listener will register to
+    // The RotationEvent channel where this listener will register to
     [SerializeField] private RotationEvent _event;
 
     // The Response to when the GameEvent channel will be raised

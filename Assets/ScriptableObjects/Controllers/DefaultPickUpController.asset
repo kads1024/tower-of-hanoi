@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: DefaultPickUpController
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: f27fafd76e197554fafb21fea5deda32, type: 2}
+  _onDiscPickup: {fileID: 11400000, guid: b1aa896538d14f24180b866d5e349778, type: 2}
+  _onDiscPutdown: {fileID: 11400000, guid: bd1834c1c59a7594ca1e9925730cea46, type: 2}

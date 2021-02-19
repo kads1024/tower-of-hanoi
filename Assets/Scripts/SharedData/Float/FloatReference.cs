@@ -16,4 +16,40 @@ public class FloatReference
 
     // The Value to be used for this FloatReference
     public float Value => _useConstant ? _constantValue : _variable.Value;
+
+    /// <summary>
+    /// Sets the constant value for this Float reference
+    /// </summary>
+    /// <param name="p_value">The value to be set</param>
+    public void SetConstantValue(float p_value)
+    {
+        _constantValue = p_value;
+    }
+
+    /// <summary>
+    /// Sets the constant value for this Float reference
+    /// </summary>
+    /// <param name="p_value">The value to be set</param>
+    public void SetConstantValue(FloatReference p_value)
+    {
+        _constantValue = p_value.Value;
+    }
+
+    /// <summary>
+    /// Sets the constant value for this Float reference
+    /// </summary>
+    /// <param name="p_value">The value to be set</param>
+    public void SetVariableValue(float p_value)
+    {
+        _variable.Value = p_value;
+    }
+
+    /// <summary>
+    /// Sets the constant value for this Float reference
+    /// </summary>
+    /// <param name="p_value">The value to be set</param>
+    public void SetVariableValue(FloatReference p_value)
+    {
+        _variable.Value = p_value.Value;
+    }
 }
