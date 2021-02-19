@@ -27,6 +27,9 @@ public class PickupController : ScriptableObject
     // Original Pole of the currently held disc
     private HanoiPole _currentDiscOriginalPole;
 
+    // The move count of the player
+    [SerializeField] private IntReference _moveCount;
+
     /// <summary>
     /// Initializes Controller for use
     /// </summary>
@@ -77,7 +80,7 @@ public class PickupController : ScriptableObject
             // Checks if there is a stack on the current pole
             if (currentPoleTopDisc)
             {
-                if (_currentlyHeldDisc.Rank < currentPoleTopDisc.Rank) // Places the disc on the stack if it is smaller than the current top of the stack
+                if (_currentlyHeldDisc.Rank <= currentPoleTopDisc.Rank) // Places the disc on the stack if it is smaller than the current top of the stack
                     PutDiscOnTopOfStack(currentPoleTopDisc, p_pole);
                 else // if not, reset the position
                     ResetDiscPosition();
@@ -115,8 +118,11 @@ public class PickupController : ScriptableObject
         // Reset the Currently Held disc
         _currentlyHeldDisc = null;
 
+        // Update Movecount
+        _moveCount.SetVariableValue(_moveCount.Value + 1);
+
         // Raise the on put down event
-        _onDiscPutdown.Raise();
+        _onDiscPutdown.Raise();    
     }
 
     /// <summary>
