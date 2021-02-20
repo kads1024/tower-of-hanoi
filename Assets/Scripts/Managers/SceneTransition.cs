@@ -21,4 +21,12 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.MAIN_GAME_SCENE);
     }
+
+    /// <summary>
+    /// Transitions to the main manu scene
+    /// </summary>
+    public void OpenMainMenuScene()
+    {
+        SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
+    }
 }
