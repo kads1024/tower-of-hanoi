@@ -82,8 +82,13 @@ public class PickupController : ScriptableObject
             {
                 if (_currentlyHeldDisc.Rank <= currentPoleTopDisc.Rank) // Places the disc on the stack if it is smaller than the current top of the stack
                     PutDiscOnTopOfStack(currentPoleTopDisc, p_pole);
-                else // if not, reset the position
+                else
+                { // if not, reset the position
                     ResetDiscPosition();
+
+                    // Raise the Error putdown disc Event
+                    _onDiscPutdownError.Raise();
+                }
             }
             else // If there is no stack, you can safely place the disc on the pole
             {
@@ -99,60 +104,63 @@ public class PickupController : ScriptableObject
     /// <param name="p_pole">The pole where this disc will be placed</param>
     private void PutDiscOnTopOfStack(HanoiDisc p_currentPoleTopDisc, HanoiPole p_pole)
     {
-        Vector3 currentDiscPosition = Vector3.zero;
-        if (p_currentPoleTopDisc) // If stack is not empty, get the top of the stack to land on
-            currentDiscPosition = p_currentPoleTopDisc.transform.position;
-        else // If stack is empty, get the base of the board
-            currentDiscPosition = new Vector3(p_pole.transform.position.x, -_currentlyHeldDisc.YScale, p_pole.transform.position.z);
+        if(_currentlyHeldDisc)
+        {
+            Vector3 currentDiscPosition = Vector3.zero;
+            if (p_currentPoleTopDisc) // If stack is not empty, get the top of the stack to land on
+                currentDiscPosition = p_currentPoleTopDisc.transform.position;
+            else // If stack is empty, get the base of the board
+                currentDiscPosition = new Vector3(p_pole.transform.position.x, -_currentlyHeldDisc.YScale, p_pole.transform.position.z);
 
-        // Calculate Landing Position based on scale
-        currentDiscPosition += Vector3.up * _currentlyHeldDisc.YScale * 2f;
+            // Calculate Landing Position based on scale
+            currentDiscPosition += Vector3.up * _currentlyHeldDisc.YScale * 2f;
 
-        // Set position based on calculated position
-        _currentlyHeldDisc.transform.position = currentDiscPosition;
-        _currentlyHeldDisc.transform.SetParent(p_pole.transform);
+            // Set position based on calculated position
+            _currentlyHeldDisc.transform.position = currentDiscPosition;
+            _currentlyHeldDisc.transform.SetParent(p_pole.transform);
 
-        // Add it to the stack
-        p_pole.AddDiscToStack(_currentlyHeldDisc);
+            // Add it to the stack
+            p_pole.AddDiscToStack(_currentlyHeldDisc);
 
-        // Reset the Currently Held disc
-        _currentlyHeldDisc = null;
+            // Reset the Currently Held disc
+            _currentlyHeldDisc = null;
 
-        // Update Movecount if you moved to another pole
-        if(p_pole != _currentDiscOriginalPole)
-            _moveCount.SetVariableValue(_moveCount.Value + 1);
+            // Update Movecount if you moved to another pole
+            if (p_pole != _currentDiscOriginalPole)
+                _moveCount.SetVariableValue(_moveCount.Value + 1);
 
-        // Raise the on put down event
-        _onDiscPutdown.Raise();    
+            // Raise the on put down event
+            _onDiscPutdown.Raise();
+        }    
     }
 
     /// <summary>
     /// Resets the original position of the currently held disc if the pole cannot be put any disc
     /// </summary>
-    private void ResetDiscPosition()
+    public void ResetDiscPosition()
     {
-        Vector3 originalDiscPosition = Vector3.zero;
-        HanoiDisc originalTopStack = _currentDiscOriginalPole.PeekTopDisc;
+        if(_currentlyHeldDisc)
+        {
+            Vector3 originalDiscPosition = Vector3.zero;
+            HanoiDisc originalTopStack = _currentDiscOriginalPole.PeekTopDisc;
 
-        if (originalTopStack) // If stack is not empty, get the top of the stack to land on
-            originalDiscPosition = originalTopStack.transform.position;
-        else // If stack is empty, get the base of the board
-            originalDiscPosition = new Vector3(_currentDiscOriginalPole.transform.position.x, -_currentlyHeldDisc.YScale, _currentDiscOriginalPole.transform.position.z);
+            if (originalTopStack) // If stack is not empty, get the top of the stack to land on
+                originalDiscPosition = originalTopStack.transform.position;
+            else // If stack is empty, get the base of the board
+                originalDiscPosition = new Vector3(_currentDiscOriginalPole.transform.position.x, -_currentlyHeldDisc.YScale, _currentDiscOriginalPole.transform.position.z);
 
-        // Calculate Landing Position based on scale
-        originalDiscPosition += Vector3.up * _currentlyHeldDisc.YScale * 2f;
+            // Calculate Landing Position based on scale
+            originalDiscPosition += Vector3.up * _currentlyHeldDisc.YScale * 2f;
 
-        // Set position based on calculated position
-        _currentlyHeldDisc.transform.position = originalDiscPosition;
-        _currentlyHeldDisc.transform.SetParent(_currentDiscOriginalPole.transform);
+            // Set position based on calculated position
+            _currentlyHeldDisc.transform.position = originalDiscPosition;
+            _currentlyHeldDisc.transform.SetParent(_currentDiscOriginalPole.transform);
 
-        // Add it to the stack
-        _currentDiscOriginalPole.AddDiscToStack(_currentlyHeldDisc);
+            // Add it to the stack
+            _currentDiscOriginalPole.AddDiscToStack(_currentlyHeldDisc);
 
-        // Reset the Currently Held disc
-        _currentlyHeldDisc = null;
-
-        // Raise the Error putdown disc Event
-        _onDiscPutdownError.Raise();
+            // Reset the Currently Held disc
+            _currentlyHeldDisc = null;
+        }  
     }
 }

@@ -25,6 +25,8 @@ public class BoardInitializer : MonoBehaviour
     // Initialize the values upon start of this object
     private void Start()
     {
+        Time.timeScale = 1.0f;
+
         // List of all the current discs for the session
         List<HanoiDisc> discs = new List<HanoiDisc>();
 

@@ -612,8 +612,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1107084328}
-        m_MethodName: Resume
+      - m_Target: {fileID: 11400000, guid: e390c04cfbcca6e478abd1265c86196b, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2808,7 +2808,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.30908695, y: 0.000000023141975, z: -0.000000007521166, w: 0.95103383}
+  m_LocalRotation: {x: 0.30908695, y: -0.000000023141977, z: 0.000000007521165, w: 0.95103383}
   m_LocalPosition: {x: 0, y: 9.05, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2961,12 +2961,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1107084323}
-        m_MethodName: 
+      - m_Target: {fileID: 11400000, guid: a4d3cd540949ce044b03d01343be2827, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3319,8 +3319,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1107084328}
-        m_MethodName: PauseGame
+      - m_Target: {fileID: 11400000, guid: b79f4fe0eae2cd24db0de0af52428c91, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3380,6 +3380,8 @@ GameObject:
   - component: {fileID: 1107084325}
   - component: {fileID: 1107084324}
   - component: {fileID: 1107084328}
+  - component: {fileID: 1107084330}
+  - component: {fileID: 1107084329}
   m_Layer: 5
   m_Name: MainInterface
   m_TagString: Untagged
@@ -3482,8 +3484,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 1356697018}
-  _restartEvent: {fileID: 11400000, guid: b2a9354b25c2b2349a5c8836b2163a40, type: 2}
-  _homeEvent: {fileID: 11400000, guid: a4d3cd540949ce044b03d01343be2827, type: 2}
+--- !u!114 &1107084329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107084323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467560279b6ccb44af3d342e21b68e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: e390c04cfbcca6e478abd1265c86196b, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107084328}
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1107084330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107084323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467560279b6ccb44af3d342e21b68e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: b79f4fe0eae2cd24db0de0af52428c91, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107084328}
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1155745953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4702229198241056, guid: 0ba258545da721e488ecb71ffd143b6f,
@@ -3990,7 +4044,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430698176}
-  m_LocalRotation: {x: 0.30908695, y: 0.000000023141975, z: -0.000000007521166, w: 0.95103383}
+  m_LocalRotation: {x: 0.30908695, y: -0.000000023141977, z: 0.000000007521165, w: 0.95103383}
   m_LocalPosition: {x: 0, y: 9.05, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4346,8 +4400,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1107084328}
-        m_MethodName: OnRestart
+      - m_Target: {fileID: 11400000, guid: b2a9354b25c2b2349a5c8836b2163a40, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
