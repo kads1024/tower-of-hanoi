@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -450,8 +450,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1054106851}
-        m_MethodName: ChooseQuantity
+      - m_Target: {fileID: 11400000, guid: fddfd54ec694dfa4c85f333ab318d5e3, type: 2}
+        m_MethodName: Raise
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1103,6 +1103,7 @@ GameObject:
   - component: {fileID: 739319902}
   - component: {fileID: 739319901}
   - component: {fileID: 739319900}
+  - component: {fileID: 739319904}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1245,6 +1246,33 @@ MonoBehaviour:
       - m_Target: {fileID: 739319899}
         m_MethodName: PlayButtonSFX
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &739319904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739319897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d00907553a5e34196054b00dd8a56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: fddfd54ec694dfa4c85f333ab318d5e3, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 739319899}
+        m_MethodName: PlaySliderSFX
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1598,6 +1626,7 @@ GameObject:
   - component: {fileID: 1054106850}
   - component: {fileID: 1054106851}
   - component: {fileID: 1054106852}
+  - component: {fileID: 1054106853}
   m_Layer: 5
   m_Name: DiscQuantitySelector
   m_TagString: Untagged
@@ -1665,6 +1694,33 @@ MonoBehaviour:
       - m_Target: {fileID: 1054106851}
         m_MethodName: CloseSelector
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1054106853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054106849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d00907553a5e34196054b00dd8a56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: fddfd54ec694dfa4c85f333ab318d5e3, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1054106851}
+        m_MethodName: ChooseQuantity
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

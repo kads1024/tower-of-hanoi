@@ -24,11 +24,13 @@ public class AudioManager : MonoBehaviour
     /// Plays a specific Audio Clipt
     /// </summary>
     /// <param name="p_audioClip">The audio clip to be played</param>
+    /// /// <param name="p_pitch">The pitch to be set</param>
     /// <param name="p_loop">Will it be looped?</param>
-    private void PlayAudio(AudioClip p_audioClip, bool p_loop)
+    private void PlayAudio(AudioClip p_audioClip, float p_pitch, bool p_loop)
     {
         _audioSource.clip = p_audioClip;
         _audioSource.loop = p_loop;
+        _audioSource.pitch = p_pitch;
         _audioSource.Play();
     }
 
@@ -41,10 +43,10 @@ public class AudioManager : MonoBehaviour
         switch (p_rotation)
         {
             case RotationType.LEFT:
-                PlayAudio(_rotateLeftSFX, false);
+                PlayAudio(_rotateLeftSFX, 1f, false);
                 break;
             case RotationType.RIGHT:
-                PlayAudio(_rotaterightSFX, false);
+                PlayAudio(_rotaterightSFX, 1f, false);
                 break;
         }
     }
@@ -54,7 +56,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayPickupSFX()
     {
-        PlayAudio(_pickupSFX, false);
+        PlayAudio(_pickupSFX, 1f, false);
     }
 
     /// <summary>
@@ -62,7 +64,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayPutDownSFX()
     {
-        PlayAudio(_putDownSFX, false);
+        PlayAudio(_putDownSFX, 1f, false);
     }
 
     /// <summary>
@@ -70,7 +72,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayErrorSFX()
     {
-        PlayAudio(_errorSFX, false);
+        PlayAudio(_errorSFX, 1f, false);
     }
 
     /// <summary>
@@ -78,14 +80,14 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayButtonSFX()
     {
-        PlayAudio(_buttonSFX, false);
+        PlayAudio(_buttonSFX, 1f, false);
     }
 
     /// <summary>
     /// Plays the Slider sfx
     /// </summary>
-    public void PlaySliderSFX()
+    public void PlaySliderSFX(float p_value)
     {
-        PlayAudio(_sliderSFX, false);
+        PlayAudio(_sliderSFX, p_value / 10f, false);
     }
 }
