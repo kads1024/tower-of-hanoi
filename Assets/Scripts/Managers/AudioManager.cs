@@ -16,6 +16,10 @@ public class AudioManager : MonoBehaviour
     // Error Sound
     [SerializeField] private AudioClip _errorSFX;
 
+    // Button Sound
+    [SerializeField] private AudioClip _buttonSFX;
+    [SerializeField] private AudioClip _sliderSFX;
+
     /// <summary>
     /// Plays a specific Audio Clipt
     /// </summary>
@@ -67,5 +71,21 @@ public class AudioManager : MonoBehaviour
     public void PlayErrorSFX()
     {
         PlayAudio(_errorSFX, false);
+    }
+
+    /// <summary>
+    /// Plays the Button sfx
+    /// </summary>
+    public void PlayButtonSFX()
+    {
+        PlayAudio(_buttonSFX, false);
+    }
+
+    /// <summary>
+    /// Plays the Slider sfx
+    /// </summary>
+    public void PlaySliderSFX()
+    {
+        PlayAudio(_sliderSFX, false);
     }
 }
