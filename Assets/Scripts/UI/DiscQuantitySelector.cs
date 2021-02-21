@@ -12,6 +12,11 @@ public class DiscQuantitySelector : MonoBehaviour
     // The text to display the quantity value
     [SerializeField] private TextMeshProUGUI _discQuantityText;
 
+    private void Start()
+    {
+        _discQuantity.SetVariableValue(1);
+    }
+
     /// <summary>
     /// Closes the Selector menu
     /// </summary>
