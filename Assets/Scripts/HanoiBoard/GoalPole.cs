@@ -38,7 +38,6 @@ public class GoalPole : MonoBehaviour
     {
         if(_pole.DiscCount ==_discQuantity.Value)
         {
-            Debug.Log("You Win");
             _onDiscComplete.Raise();
         }
     }
