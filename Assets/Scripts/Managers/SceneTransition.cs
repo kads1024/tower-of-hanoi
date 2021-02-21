@@ -29,4 +29,12 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.MAIN_MENU_SCENE);
     }
+
+    /// <summary>
+    /// Transitions to the Tutorial scene
+    /// </summary>
+    public void OpenTutorialScene()
+    {
+        SceneManager.LoadScene(Constants.TUTORIAL_SCENE);
+    }
 }
