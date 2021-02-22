@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1760,6 +1760,7 @@ GameObject:
   - component: {fileID: 677367636}
   - component: {fileID: 677367635}
   - component: {fileID: 677367634}
+  - component: {fileID: 677367638}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1883,6 +1884,7 @@ MonoBehaviour:
   _errorSFX: {fileID: 8300000, guid: 7bdff45927c79d74eb7c39954286d70f, type: 3}
   _buttonSFX: {fileID: 8300000, guid: 8a354855cdeef9846bb7e56dbfe82995, type: 3}
   _sliderSFX: {fileID: 8300000, guid: 47d34f2ef2a8f4a40a0353c97d3faf47, type: 3}
+  _winSFX: {fileID: 8300000, guid: 1c7221cc62ecc9f4c95a3e911c0df8be, type: 3}
 --- !u!114 &677367633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2011,33 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 677367632}
         m_MethodName: PlayButtonSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &677367638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677367627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8467560279b6ccb44af3d342e21b68e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _event: {fileID: 11400000, guid: d28c1f23de7dc4744a304f9cccbc738e, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 677367632}
+        m_MethodName: PlayWinSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2896,7 +2925,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.30908695, y: 0.000000023141975, z: -0.000000007521166, w: 0.95103383}
+  m_LocalRotation: {x: 0.30908695, y: -0.000000023141977, z: 0.000000007521165, w: 0.95103383}
   m_LocalPosition: {x: 0, y: 9.05, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4443,7 +4472,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430698176}
-  m_LocalRotation: {x: 0.30908695, y: 0.000000023141975, z: -0.000000007521166, w: 0.95103383}
+  m_LocalRotation: {x: 0.30908695, y: -0.000000023141977, z: 0.000000007521165, w: 0.95103383}
   m_LocalPosition: {x: 0, y: 9.05, z: -12.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

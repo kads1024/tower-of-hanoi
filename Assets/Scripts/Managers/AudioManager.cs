@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _buttonSFX;
     [SerializeField] private AudioClip _sliderSFX;
 
+    [SerializeField] private AudioClip _winSFX;
+
     /// <summary>
     /// Plays a specific Audio Clipt
     /// </summary>
@@ -89,5 +91,13 @@ public class AudioManager : MonoBehaviour
     public void PlaySliderSFX(float p_value)
     {
         PlayAudio(_sliderSFX, p_value / 10f, false);
+    }
+
+    /// <summary>
+    /// Plays the win sfx
+    /// </summary>
+    public void PlayWinSFX()
+    {
+        PlayAudio(_winSFX, 1f, false);
     }
 }

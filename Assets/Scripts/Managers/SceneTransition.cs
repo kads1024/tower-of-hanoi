@@ -37,4 +37,12 @@ public class SceneTransition : MonoBehaviour
     {
         SceneManager.LoadScene(Constants.TUTORIAL_SCENE);
     }
+
+    /// <summary>
+    /// Exits the game
+    /// </summary>
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }
