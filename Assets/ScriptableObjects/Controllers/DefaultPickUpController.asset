@@ -15,6 +15,7 @@ MonoBehaviour:
   _input: {fileID: 11400000, guid: f27fafd76e197554fafb21fea5deda32, type: 2}
   _onDiscPickup: {fileID: 11400000, guid: b1aa896538d14f24180b866d5e349778, type: 2}
   _onDiscPutdown: {fileID: 11400000, guid: bd1834c1c59a7594ca1e9925730cea46, type: 2}
+  _onDiscStack: {fileID: 11400000, guid: fb2e8d70ffc548f418f51dd5b2dc4768, type: 2}
   _onDiscPutdownError: {fileID: 11400000, guid: 1c286dadbb0cfa34a898e5fb36fb8518,
     type: 2}
   _moveCount:

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5251,7 +5251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8467560279b6ccb44af3d342e21b68e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 11400000, guid: bd1834c1c59a7594ca1e9925730cea46, type: 2}
+  _event: {fileID: 11400000, guid: fb2e8d70ffc548f418f51dd5b2dc4768, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
