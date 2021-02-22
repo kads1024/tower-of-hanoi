@@ -19,6 +19,7 @@ public class PickupController : ScriptableObject
     // Events when pocking up and releasing a disc
     [SerializeField] private VoidEvent _onDiscPickup;
     [SerializeField] private VoidEvent _onDiscPutdown;
+    [SerializeField] private VoidEvent _onDiscStack;
     [SerializeField] private VoidEvent _onDiscPutdownError;
 
     // Disc that the player is currently holding
@@ -106,6 +107,9 @@ public class PickupController : ScriptableObject
     {
         if(_currentlyHeldDisc)
         {
+            // Raise the on put down event
+            _onDiscPutdown.Raise();
+
             Vector3 currentDiscPosition = Vector3.zero;
             if (p_currentPoleTopDisc) // If stack is not empty, get the top of the stack to land on
                 currentDiscPosition = p_currentPoleTopDisc.transform.position;
@@ -129,8 +133,8 @@ public class PickupController : ScriptableObject
             // Reset the Currently Held disc
             _currentlyHeldDisc = null;
 
-            // Raise the on put down event
-            _onDiscPutdown.Raise();
+            // Raise the disc stack event
+            _onDiscStack.Raise();
         }    
     }
 
